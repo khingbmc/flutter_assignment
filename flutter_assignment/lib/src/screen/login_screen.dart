@@ -30,6 +30,7 @@ class LoginScreenState extends State<LoginScreen>{
               emailField(),
               passwordField(),
               submitBtnField(),
+              registBtn(),
           ],
         ),
       )
@@ -72,10 +73,35 @@ class LoginScreenState extends State<LoginScreen>{
               textColor: Colors.white,
               color: Colors.pink.shade500,
               child: Text('Login'),
-              onPressed: (){},
+              onPressed: (){
+
+              },
         ),
           ),
       );
+  }
+  Widget registBtn(){
+    return Align(
+      alignment: Alignment.centerRight,
+      child: ButtonTheme(
+        
+        padding: EdgeInsets.only(top: 0),
+        child: FlatButton(
+          textColor: Colors.blue.shade400,
+          onPressed: (){
+            Navigator.push(
+              context, 
+              MaterialPageRoute(
+                builder: (context) => RegistScreen()
+              ));
+          },
+          child: Container(
+            padding: EdgeInsets.only(top: 5.0),
+            child: Text("Register New Account"),
+          ),
+        ),
+      ),
+    );
   }
 
 }

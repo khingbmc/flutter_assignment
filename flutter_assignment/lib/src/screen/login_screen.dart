@@ -22,7 +22,7 @@ class LoginScreenState extends State<LoginScreen>{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      margin: EdgeInsets.all(60.0),
+      margin: EdgeInsets.fromLTRB(60.0, 20.0, 60.0, 10.0),
       child: Center(
         child: Form(
           child: Column(
@@ -38,31 +38,44 @@ class LoginScreenState extends State<LoginScreen>{
     );
   }
   Widget emailField(){
-    return TextFormField(
-      keyboardType: TextInputType.emailAddress,
-      decoration: InputDecoration(
-        labelText: 'Email Address',
-        hintText: 'you@example.com',
+    return Container(
+      padding: EdgeInsets.only(top: 40.0),
+      child: TextFormField(
+        keyboardType: TextInputType.emailAddress,
+        decoration: InputDecoration(
+        prefixIcon: Icon(Icons.person),
+        hintText: 'User Id',
       ),
+    ),
     );
   }
   Widget passwordField(){
-    return TextFormField(
-      decoration: InputDecoration(
-        labelText: 'Enter Password',
+    return Container(
+     
+      padding: EdgeInsets.only(top: 10.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+        prefixIcon: Icon(Icons.lock),
         hintText: 'Password',
       ),
       obscureText: true,
+    ),
     );
   }
 
   Widget submitBtnField(){
-    return RaisedButton(
-      textColor: Colors.white,
-      color: Colors.pink,
-      child: Text('Continue'),
-      onPressed: (){},
-    );
+    return Container(
+      padding: EdgeInsets.only(top: 25.0),
+          child: ButtonTheme(
+            minWidth: 275,
+            child: RaisedButton(
+              textColor: Colors.white,
+              color: Colors.pink.shade500,
+              child: Text('Login'),
+              onPressed: (){},
+        ),
+          ),
+      );
   }
 
 }
